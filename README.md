@@ -1,11 +1,19 @@
 # brain
-#SQL DATABASE ORACLE
-CREATE TABLE dna_subject (
-    id                NUMBER GENERATED ALWAYS AS IDENTITY MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE  NOT NULL ENABLE,
-    dna               VARCHAR2(255),
-    mutant_indicator  NUMBER(1)
-);
+#URl
+http://54.81.76.23:8080/api/stats
+http://54.81.76.23:8080/api/mutant
+#instrucciones:
+para consumir el servicio /mutant colocar en el body de la peticion:
 
-ALTER TABLE dna_subject ADD CONSTRAINT dna_subject_pk PRIMARY KEY ( id );
+{
+    "dna":["ATGCGA", "CAGTGC", "TTATTT", "AGACGG", "GCGTCA", "TCACGT"]
+}
 
-ALTER TABLE dna_subject ADD CONSTRAINT dna_subject_uk UNIQUE ( dna );
+comrpobando el funcionamiento de la misma:
+
+el servicio esta desplegado en AWS en el servicio ECS con fargate.
+
+#herramientas utilizadas
+-Docker
+-springboot
+-mysql
